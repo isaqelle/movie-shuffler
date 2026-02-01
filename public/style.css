@@ -1,0 +1,78 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+
+:root {
+    --space1: 0.5rem;
+    --space2: 1rem;
+    --space3: 1.5rem;
+
+    /* colors */
+    --bg: #dbd8c9;
+    --bg2: #c8c5b7;
+    --yellow: #cdbb39;
+    --brown: #554534;
+    --text: #202215;
+}
+
+body{
+    padding: var(--space2);
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+html,body{
+    height: 100%;
+    
+}
+
+.container{
+    padding: var(--space2);
+    margin: var(--space2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.movieContainer{
+    background-color: var(--bg2);
+    margin: var(--space2);
+    padding: var(--space2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2{
+    font-family: "Bodoni Moda", serif;
+    color: var(--brown);
+}
+
+h1{
+    font-size: 60px;
+    margin: 0;
+}
+#introText{
+    font-family: 'Fira Code', monospace;
+}
+
+a{
+    font-weight: bold;
+    color: var(--yellow);
+}
+
+#pickBtn{
+    width: 20%;
+    padding: 10px 15px;
+    background-color: var(--yellow);
+    border-radius: var(--space2);
+    border: none;
+    text-transform: uppercase;
+}

@@ -1,3 +1,5 @@
+
+
 document.getElementById("pickBtn").addEventListener("click", () => {
   fetch("/random-movie")
     .then(res => res.json())
