@@ -9,16 +9,17 @@
     --space1: 0.5rem;
     --space2: 1rem;
     --space3: 1.5rem;
+    --space4: 2rem;
 
     --font1: 'Fira Code', monospace;
     --font2: "Bodoni Moda", serif;
 
     /* colors */
-    --bg: #dbd8c9;
-    --bg2: #c8c5b7;
-    --yellow: #cdbb39;
-    --brown: #554534;
-    --text: #202215;
+    --bg: #000;
+    --bg2: #3c3c3c;
+    --pink: #6f2271;
+    /* --brown: #554534; */
+    --text: #fff;
 }
 
 body{
@@ -38,20 +39,21 @@ html,body{
 }
 
 .container{
-    padding: var(--space2);
     margin: var(--space2);
     flex: 1;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
 
-    width: 60%;
+    width: 40%;
+
+    border: 2px solid var(--pink);
 }
 
 .movieContainer{
-    background-color: var(--bg2);
+    /* background-color: var(--bg2); */
     margin: var(--space2);
     padding: var(--space2);
     width: 100%;
@@ -63,7 +65,7 @@ html,body{
 
 h1, h2{
     font-family: var(--font2);
-    color: var(--brown);
+    color: #fff;
 }
 
 h1{
@@ -76,7 +78,7 @@ h1{
 
 a{
     font-weight: bold;
-    color: var(--yellow);
+    color: var(--pink);
 }
 
 #link{
@@ -84,20 +86,51 @@ a{
 }
 
 #pickBtn{
-    width: 20%;
-    padding: 10px 15px;
-    background-color: var(--yellow);
-    border-radius: var(--space2);
-    border: none;
-    text-transform: uppercase;
+    background-image: url(assets/shuffle.gif);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        width: 200px;
+        height: 36px;
+        margin-top: var(--space3);
+
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
 }
 
 footer{
-    background-color: var(--brown);
+    border-top: solid var(--pink) 2px ;
+    background-color: #6e227140;
     width: 100%;
-    color: var(--yellow);
     font-family: var(--font1);
     margin: 0;
     padding: var(--space1);
 
+}
+
+
+/* nav bar */
+
+.navBar{
+    border-bottom: 2px solid var(--pink);
+    background-color: #6e227140;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: var(--space1);
+}
+
+#links{
+    text-decoration: none;
+    font-family: var(--font1);
+    font-size: small;
+}
+
+#links:hover{
+    color: #fff;
+    text-decoration: underline;
+    
 }

@@ -1,6 +1,6 @@
 
 
-document.getElementById("pickBtn").addEventListener("click", () => {
+function loadRandomMovie() {
   fetch("/random-movie")
     .then(res => res.json())
     .then(movie => {
@@ -21,4 +21,7 @@ document.getElementById("pickBtn").addEventListener("click", () => {
         poster.style.display = "none";
       }
     });
-});
+};
+
+document.getElementById("pickBtn").addEventListener("click", loadRandomMovie);
+document.addEventListener("DOMContentLoaded", loadRandomMovie);
