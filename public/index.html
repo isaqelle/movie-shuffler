@@ -9,7 +9,22 @@
 
 <style>
 
+:root {
+    --space1: 0.5rem;
+    --space2: 1rem;
+    --space3: 1.5rem;
+    --space4: 2rem;
 
+    --font1: 'Fira Code', monospace;
+    --font2: "Bodoni Moda", serif;
+
+    /* colors */
+    --bg: #000;
+    --bg2: #3c3c3c;
+    --pink: #6f2271;
+    /* --brown: #554534; */
+    --text: #fff;
+}
     html,body{
     height: 100%;
     margin: 0;
@@ -34,11 +49,10 @@
     }
 
     .container{
-        border: 2px solid rgb(172, 170, 170);
+        border: 2px solid var(--pink);
         padding: 2rem;
         width: 400px;
         height: 400px;
-        background-color: #151515;
     
     }
 
@@ -46,7 +60,7 @@
 
 
     .btnCont{
-        border: 1px solid red;
+        
         display: flex;
         justify-content: center;
         align-items: center;
@@ -73,6 +87,16 @@
 
     }
 
+    a{
+      text-decoration: none;
+    font-family: var(--font1);
+    color: var(--pink);
+    }
+    a:hover{
+        color: #fff;
+        text-decoration: underline;
+        
+    }
 
 
 </style>
