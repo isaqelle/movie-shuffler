@@ -1,36 +1,43 @@
 const express = require("express");
-const path = require("path")
+require("dotenv").config();
 
 const app = express();
-// load json
 const likes = require("./data/likes.json");
-const { title } = require("process");
 
 
-// random movie endpoint:::
+// should be above routes
+app.use(express.static("public"));
 
-app.get("/random-movie", (req, res) => {
-    const rndIndex = Math.floor(Math.random() * likes.length);
-    const movie = likes[rndIndex]
+app.get("/random-movie", async (req, res) => {
+  try {
+    const movie = likes[Math.floor(Math.random() * likes.length)];
+
+    const title = movie.Name;
+    const year = movie.Year;
+
+    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&query=${encodeURIComponent(
+      title
+    )}&year=${year}`;
+
+    const tmdbRes = await fetch(searchUrl);
+    const tmdbData = await tmdbRes.json();
+
+    const posterPath = tmdbData.results[0]?.poster_path;
 
     res.json({
-        title: movie.Name,
-        year: movie.Year,
-        letterboxdUrl: movie["Letterboxd URI"]
-    })
-})
+      title,
+      year,
+      letterboxdUrl: movie["Letterboxd URI"],
+      poster: posterPath
+        ? `https://image.tmdb.org/t/p/w500${posterPath}`
+        : null
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch movie" });
+  }
+});
 
-
-// app.get("/", (req, res) => {
-//     res.send("Welcome")
-// })
-
-// Express static middleware:
-// serve the whole "public" folder
-app.use(express.static("public"))
-
-// app.get("/", (req, res) => {
-//     res.send("Hello there")
-// })
-
-app.listen(3000, () => console.log("Sever is running on http://localhost:3000"))
+app.listen(5500, () =>
+  console.log("Server is running on http://localhost:5500")
+);

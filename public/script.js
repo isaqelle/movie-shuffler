@@ -10,4 +10,11 @@ document.getElementById("pickBtn").addEventListener("click", () => {
   })  
 })
 
-console.log("Hello world")
+const poster = document.getElementById("poster");
+
+if (movie.poster) {
+    poster.src = movie.poster;
+    poster.style.display = "block";
+} else {
+    poster.style.display = "none"
+}
