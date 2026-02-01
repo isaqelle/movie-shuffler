@@ -10,6 +10,9 @@
     --space2: 1rem;
     --space3: 1.5rem;
 
+    --font1: 'Fira Code', monospace;
+    --font2: "Bodoni Moda", serif;
+
     /* colors */
     --bg: #dbd8c9;
     --bg2: #c8c5b7;
@@ -19,24 +22,32 @@
 }
 
 body{
-    padding: var(--space2);
     background-color: var(--bg);
     color: var(--text);
+    margin: 0;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; 
 }
 
 html,body{
     height: 100%;
-    
 }
 
 .container{
     padding: var(--space2);
     margin: var(--space2);
+    flex: 1;
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    width: 60%;
 }
 
 .movieContainer{
@@ -51,7 +62,7 @@ html,body{
 }
 
 h1, h2{
-    font-family: "Bodoni Moda", serif;
+    font-family: var(--font2);
     color: var(--brown);
 }
 
@@ -59,13 +70,17 @@ h1{
     font-size: 60px;
     margin: 0;
 }
-#introText{
-    font-family: 'Fira Code', monospace;
+#introText, #link{
+    font-family:var(--font1);
 }
 
 a{
     font-weight: bold;
     color: var(--yellow);
+}
+
+#link{
+    color: var(--text);
 }
 
 #pickBtn{
@@ -75,4 +90,14 @@ a{
     border-radius: var(--space2);
     border: none;
     text-transform: uppercase;
+}
+
+footer{
+    background-color: var(--brown);
+    width: 100%;
+    color: var(--yellow);
+    font-family: var(--font1);
+    margin: 0;
+    padding: var(--space1);
+
 }

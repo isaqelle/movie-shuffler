@@ -3,28 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
-    <title>Movie shuffler</title>
+    <title>Movie Shuffler</title>
 </head>
+
+<style>
+
+
+    html,body{
+    height: 100%;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family:'Fira Code', monospace;
+    flex-direction: column;
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* cursor */
+    .cursor {
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+    50% { opacity: 0; }
+    }
+
+    .container{
+        border: 2px solid rgb(172, 170, 170);
+        padding: 2rem;
+        width: 400px;
+        height: 400px;
+        background-color: #151515;
+    
+    }
+
+    /* button */
+
+
+    .btnCont{
+        border: 1px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+    }
+
+    #introText,
+    #startBtn {
+    display: none;
+    }
+
+
+
+</style>
+
 <body>
+
     <div class="container">
-    <h1>Movie Shuffler</h1>
+        <h1><span id="title"></span><span class="cursor">|</span></h1>
 
-    <p id="introText">I've always enjoyed great films, no matter the genre. This page generates my favourite movies, based on <a href="https://letterboxd.com/isaqellle/" target="_blank">my Letterboxd</a> likes. Press the button below to randomly display one of my favourites!</p>
-    <button id="pickBtn">Shuffle</button>
-
-    <div class="movieContainer">
-    <img style="max-width: 300px; display: none;" id="poster">
-
-    <h2 id="title"></h2>
-    <a target="_blank" id="link"></a>
-
+        <p id="introText">
+  I've always enjoyed great films, no matter the genre. This page generates my favourite movies, based on <a href="https://letterboxd.com/isaqellle/" target="_blank">my Letterboxd</a> likes. Press the button below to randomly display one of my favourites!
+</p>
+    
+        <div class="btnCont">
+        <button id="startBtn"><a href="homePage.html">Press me</a></button>
     </div>
     </div>
+    
 </body>
-<script src="script.js"></script>
+
+<script>
+const speed = 80;
+
+function typeText(elementId, text, callback) {
+  let i = 0;
+  const el = document.getElementById(elementId);
+
+  function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    } else if (callback) {
+      callback();
+    }
+  }
+
+  type();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  typeText("title", "welcome to the movie shuffler", () => {
+    document.getElementById("introText").style.display = "block";
+    document.getElementById("startBtn").style.display = "inline-block";
+  });
+});
+
+</script>
+
+
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+    <title>Movie shuffler</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Movie Shuffler</h1>
+
+    <p id="introText">I've always enjoyed great films, no matter the genre. This page generates my favourite movies, based on <a href="https://letterboxd.com/isaqellle/" target="_blank">my Letterboxd</a> likes. Press the button below to randomly display one of my favourites!</p>
+    <button id="pickBtn">Shuffle</button>
+
+    <div class="movieContainer">
+    <img style="max-width: 300px; display: none;" id="poster">
+
+    <h2 id="title"></h2>
+    <a target="_blank" id="link"></a>
+
+    </div>
+ 
+</div>
+
+<footer>&copy; Isabelle Dahlström 2026</footer>   
+</body>
+<script src="script.js"></script>
+</html>
