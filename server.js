@@ -15,7 +15,7 @@ app.get("/random-movie", async (req, res) => {
   // If it stops working, generate your own at themoviedb.org
   const API_KEY = process.env.TMDB_API_KEY || "21bd6eabb919d2b84d43520d52710cbf"
   // error handling for broken api key:
-  if (!API_KEY || API_KEY === "21bd6eabb919d2b84d43520d52710cbf") {
+  if (!API_KEY){
     return res.json({
       error:"API key not available. Generate your own at themoviedb.org"
     })

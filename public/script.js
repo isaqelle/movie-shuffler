@@ -4,6 +4,22 @@ function loadRandomMovie() {
   fetch("/random-movie")
     .then(res => res.json())
     .then(movie => {
+
+      // handle error from server
+      if (movie.error) {
+        document.getElementById("title").textContent = movie.error;
+
+        const poster = document.getElementById("poster");
+        poster.style.display = "none";
+
+        const link = document.getElementById("link");
+        link.textContent = "";
+        link.href = "#";
+
+        return;
+      }
+
+      // movie display
       document.getElementById("title").textContent =
         `${movie.title} (${movie.year})`;
 
@@ -20,7 +36,12 @@ function loadRandomMovie() {
       } else {
         poster.style.display = "none";
       }
-    });
+    }).catch(err => {
+      document.getElementById("title").textContent =
+        "Something went wrong.";
+      console.log(err)
+      
+    })
 };
 
 document.getElementById("pickBtn").addEventListener("click", loadRandomMovie);
