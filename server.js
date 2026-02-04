@@ -29,14 +29,19 @@ app.get("/random-movie", async (req, res) => {
     const title = movie.Name;
     const year = movie.Year;
 
-    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${encodeURIComponent(
+    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(
       title
     )}&year=${year}`;
 
     const tmdbRes = await fetch(searchUrl);
     const tmdbData = await tmdbRes.json();
 
-    const posterPath = tmdbData.results[0]?.poster_path;
+    let posterPath = null;
+
+    if (tmdbData.results && tmdbData.results.length > 0) {
+      posterPath = tmdbData.results[0].poster_path;
+    }
+
 
     res.json({
       title,
