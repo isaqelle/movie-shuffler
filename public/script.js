@@ -31,8 +31,13 @@ function loadRandomMovie() {
       const poster = document.getElementById("poster");
 
       if (movie.poster) {
+        poster.style.opacity = 0;
         poster.src = movie.poster;
         poster.style.display = "block";
+
+        setTimeout(() => {
+          poster.style.opacity = 1;
+        }, 50)
       } else {
         poster.style.display = "none";
       }
@@ -42,6 +47,7 @@ function loadRandomMovie() {
       console.log(err)
       
     })
+
 };
 
 document.getElementById("pickBtn").addEventListener("click", loadRandomMovie);

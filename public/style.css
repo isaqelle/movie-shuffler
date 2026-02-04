@@ -28,7 +28,7 @@ body{
     margin: 0;
 
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     min-height: 100vh; 
@@ -36,10 +36,11 @@ body{
 
 html,body{
     height: 100%;
+    margin: 0;
 }
 
 .container{
-    margin: var(--space2);
+    margin: var(--space4);
     flex: 1;
 
     display: flex;
@@ -47,7 +48,9 @@ html,body{
     align-items: center;
     flex-direction: column;
 
-    width: 40%;
+    /* width: 30%; */
+    width: 100%;
+    max-width: 400px;
 
     border: 2px solid var(--pink);
 }
@@ -100,6 +103,7 @@ a{
         cursor: pointer;
 }
 
+
 footer{
     border-top: solid var(--pink) 2px ;
     background-color: #6e227140;
@@ -129,8 +133,19 @@ footer{
     font-size: small;
 }
 
+/* animations */
+
 #links:hover{
     color: #fff;
     text-decoration: underline;
     
+}
+
+#pickBtn:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+
+#poster {
+    transition: opacity 0.4s ease;
 }
