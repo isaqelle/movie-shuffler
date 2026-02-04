@@ -6,8 +6,10 @@ const app = express();
 const likes = require("./data/likes.json");
 
 
+// find the correct folder
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.static("public"));
 
 app.get("/random-movie", async (req, res) => {
 
