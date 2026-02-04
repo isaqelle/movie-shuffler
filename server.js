@@ -6,17 +6,28 @@ const app = express();
 const likes = require("./data/likes.json");
 
 
-// should be above routes
+
 app.use(express.static("public"));
 
 app.get("/random-movie", async (req, res) => {
+
+  // Demo API key for portfolio/convenience purposes.
+  // If it stops working, generate your own at themoviedb.org
+  const API_KEY = process.env.TMDB_API_KEY || "21bd6eabb919d2b84d43520d52710cbf"
+  // error handling for broken api key:
+  if (!API_KEY || API_KEY === "21bd6eabb919d2b84d43520d52710cbf") {
+    return res.json({
+      error:"API key not available. Generate your own at themoviedb.org"
+    })
+  }
+
   try {
     const movie = likes[Math.floor(Math.random() * likes.length)];
 
     const title = movie.Name;
     const year = movie.Year;
 
-    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.TMDB_API_KEY}&query=${encodeURIComponent(
+    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${encodeURIComponent(
       title
     )}&year=${year}`;
 
